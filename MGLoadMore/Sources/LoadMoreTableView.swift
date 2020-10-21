@@ -55,8 +55,17 @@ open class LoadMoreTableView: UITableView {
         }
     }
     
-    override open func awakeFromNib() {
-        super.awakeFromNib()
+    public override init(frame: CGRect, style: UITableView.Style) {
+        super.init(frame: frame, style: style)
+        commonInit()
+    }
+    
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    func commonInit() {
         self.addSubview(_refreshControl)
         self.refreshFooter = RefreshAutoFooter()
     }
