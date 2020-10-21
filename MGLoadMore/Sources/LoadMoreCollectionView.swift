@@ -55,8 +55,17 @@ open class LoadMoreCollectionView: UICollectionView {
         }
     }
     
-    override open func awakeFromNib() {
-        super.awakeFromNib()
+    public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+        super.init(frame: frame, collectionViewLayout: layout)
+        commonInit()
+    }
+    
+    required public init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
+    
+    func commonInit() {
         self.addSubview(_refreshControl)
         self.refreshFooter = RefreshAutoFooter()
     }
